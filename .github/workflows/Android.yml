@@ -1,6 +1,6 @@
 # This is a basic workflow to help you get started with Actions
 
-name: Android Build CI
+name: compile
 
 # Controls when the workflow will run
 on: [push, pull_request, workflow_dispatch]
@@ -20,14 +20,14 @@ jobs:
         with:
           haxe-version: 4.2.3
           
-      - name: Cache haxelib path
+      - name: Cache haxelib path p
         uses: actions/cache@v2
         with:
           path: |
             %HAXELIB_ROOT%
           key: ${{ runner.os }}-android
           
-      - name: Setup Android SDK Tools
+      - name: Setup Android SDK Tools kakaka
         uses: android-actions/setup-android@v2.0.2
         
       - name: Setup Java JDK
@@ -73,5 +73,5 @@ jobs:
           
       - uses: actions/upload-artifact@v2
         with:
-          name: Android Build
+          name: build android
           path: export/release/android/bin/app/build/outputs/apk/debug
